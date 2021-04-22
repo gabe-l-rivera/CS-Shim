@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* author: gabe rivera
+ * date: april 20, 2021
+ * purpose: shim to run python via cs app
+ * bugs: none at the moment
+ */
+
+using System;
 using System.Diagnostics;
 
 namespace RunPythonScriptFromCS
