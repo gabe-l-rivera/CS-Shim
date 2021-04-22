@@ -22,21 +22,21 @@ namespace RunPythonScriptFromCS
 
             /* 2) Provide script and arguments for program:
               
-              If there is a variable in the python script that is being set to a var in this
-              program, you must instantiate the variable in the python script using
+              * If a variable in the python script is being set to a var from this
+              * program, you must instantiate the variable in the python script using:
 
-                    x = sys.argv[1] // sets x to argv[1] in the .cs program
-                    number = sys.argv[2]
+              x = sys.argv[1] // sets x to argv[1] in the .cs program
+              number = sys.argv[2]
+
+              * where argv[1] and argv[2] are the variables indexed in psi.Arguments string below
 
             */
 
+            // Set script to the location of the python script we want to execute
             var script = @"/Users/gaberivera/Desktop/Spring 21/CS499/intel-signal-processing/main.py";
-            var some_arg1 = "input to a function"; // some string for sake of example
-            var some_arg2 = 2345; // some arbitarty intiger for sake of example
 
-            // Pass in arguments from .cs file to .py script:
-            // argv[script, some_arg1, some_arg2]
-            psi.Arguments = $" \"{script}\" \"{some_arg1}\" \"{some_arg2}\" "; 
+            // For our script, all we need to do is call the program, so we just need to include script:
+            psi.Arguments = $" \"{script}\" ";
 
             // 3) Process configuration
             psi.UseShellExecute = false;
@@ -58,7 +58,7 @@ namespace RunPythonScriptFromCS
             Console.WriteLine("ERRORS:");
             Console.WriteLine(errors);
             Console.WriteLine();
-            Console.WriteLine("Results:");
+            Console.WriteLine("RESULTS:");
             Console.WriteLine(results);
 
         }
